@@ -8,7 +8,9 @@ var cheerio = require("cheerio");
 
 //  need  express, express-handlebars, mongoose, cheerio, axios
 
-var db = require("./models");
+// var db = require("./models");
+var Article = require("./models/Article")
+var Note = require("./models/Note")
 
 var PORT = process.env.PORT || 3000;
 
@@ -69,7 +71,8 @@ app.get("/scrape", function(req, res) {
 
       //
 
-      db.Article.create(result)
+      // db.
+      Article.create(result)
         .then(function(dbArticle) {
           console.log(dbArticle);
         })
@@ -85,7 +88,8 @@ app.get("/scrape", function(req, res) {
 });
 
 app.get("/articles", function(req, res) {
-  db.Article.find({})
+  // db.
+  Article.find({})
     .then(function(dbArticle) {
       res.json(dbArticle);
     })
@@ -95,7 +99,8 @@ app.get("/articles", function(req, res) {
 });
 
 app.get("/articles/:id", function(req, res) {
-  db.Article.findOne({ _id: req.params.id })
+  // db.
+  Article.findOne({ _id: req.params.id })
     .populate("note")
     .then(function(dbArticle) {
       res.json(dbArticle);
@@ -106,9 +111,11 @@ app.get("/articles/:id", function(req, res) {
 });
 
 app.post("/articles/:id", function(req, res) {
-  db.Note.create(req.body)
+  // db.
+  Note.create(req.body)
     .then(function(dbNote) {
-      return db.Article.findOneAndUpdate(
+      // db.
+     return Article.findOneAndUpdate(
         { _id: req.params.id },
         { note: dbNote._id },
         { new: true }
