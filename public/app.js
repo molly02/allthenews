@@ -18,7 +18,6 @@ $.getJSON("/articles", function(data) {
   }
 });
 
-//click link to send to link
 
 $(document).on("click", "p", function() {
   $("#notes").empty();
