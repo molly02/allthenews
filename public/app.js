@@ -8,10 +8,11 @@ $.getJSON("/articles", function(data) {
         "<br />" +
         data[i].link +
         "</p>"
+        //add correct code for summary
     );
 
     //how to send to each separate card??
-
+// currently going to html as one list instead of into bootstrap cards
     //    $(".card-title").append(this.data[i].title);
     //   // $(".card-text").append(data[i].summary;
     //    $(".card-link").append(this.data[i].link);

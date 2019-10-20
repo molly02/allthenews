@@ -10,3 +10,5 @@ var NoteSchema = new Schema({
 var Note = mongoose.model("Note", NoteSchema);
 
 module.exports = Note;
+
+//beginning of code to start notes on each article

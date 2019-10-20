@@ -7,6 +7,7 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  //need correct code to scrape summary
   //   summary: {
   //       type: String,
   //       required: true

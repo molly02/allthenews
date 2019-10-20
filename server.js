@@ -41,7 +41,7 @@ mongoose.connect(MONGODB_URI);
 // mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 
 app.get("/", function(req, res) {
-  res.send("home");
+  res.render("home");
 });
 
 app.get("/scrape", function(req, res) {
